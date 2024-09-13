@@ -1,3 +1,4 @@
+// this function will be used to authorize requests to our api
 import jwt from "jsonwebtoken";
 
 const tokenGenerator = (): string => {
