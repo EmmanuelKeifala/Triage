@@ -10,12 +10,13 @@ import {
   Dimensions,
   ActivityIndicator,
   Alert,
+  Platform,
 } from "react-native";
 import * as Print from "expo-print";
 import { shareAsync } from "expo-sharing";
 import useMessageStore, { Message } from "@/components/Store";
 import { fetchApi } from "@/lib/fetchApi";
-
+import * as FileSystem from "expo-file-system";
 import { generatePatientId } from "@/lib/generatePatientId";
 
 import getData from "@/lib/getFacilityData";
@@ -30,7 +31,6 @@ const TriageScreen = () => {
   const { messages, settings, facilityCode, clearMessages } = useMessageStore();
   const [isSaved, setIsSaved] = useState(false);
   const [facilityData, setFacilityData] = useState<any>([]);
-
   useEffect(() => {
     async function fetchFacilityData() {
       try {
@@ -116,6 +116,7 @@ const TriageScreen = () => {
   };
 
   const handleDbSave = async () => {
+    setIsLoading(true);
     const { Biodata } = triageData; // Assuming formData contains the form data
 
     // Check for required fields
@@ -132,28 +133,32 @@ const TriageScreen = () => {
     try {
       if (!isSaved) {
         const { uri } = await Print.printToFileAsync({ html: htmlContent });
-        // const response = await uploadFileToArweave(
-        //   uri,
-        //   "application/pdf"
-        // )
-        // // console.log( response.tx)
+        const response = await uploadFileToArweave(uri, "application/pdf");
+        // console.log( response.tx)
         await supabase.from("patients").insert({
           patientid: patientId,
         });
         const { error, data } = await supabase.from("messages").insert({
-          hash_tx: "hjdagsdh",
+          hash_tx: response.tx.id,
           facilitycode: facilityCode,
           patientid: patientId,
         });
+        setIsLoading(false);
         console.log(error);
-        Alert.alert("Success", "Data saved to the database");
-
-        setIsSaved(true);
+        if (!error) {
+          Alert.alert("Success", "Data saved to the database");
+          setIsSaved(true);
+        } else {
+          Alert.alert("Error", "Data was not uploaded");
+        }
       } else {
         Alert.alert("Error", "Data aleady Saved");
       }
     } catch (error) {
       Alert.alert("Error", "Failed to save data to the database");
+      setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -355,8 +360,33 @@ const TriageScreen = () => {
 
   const handleSave = async () => {
     const { uri } = await Print.printToFileAsync({ html: htmlContent });
+    const filename = `${triageData?.Biodata?.["Name of patient"]}-${facilityData[0]?.["facilityname"]}`;
+    if (Platform.OS === "android") {
+      const permissions =
+        await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
+      if (!permissions.granted) {
+        Alert.alert("Error", "No file directory permission");
+      } else {
+        const base64 = await FileSystem.readAsStringAsync(uri, {
+          encoding: FileSystem.EncodingType.Base64,
+        });
+        await FileSystem.StorageAccessFramework.createFileAsync(
+          permissions.directoryUri,
+          filename,
+          "application/pdf"
+        )
+          .then(
+            async (uri) =>
+              await FileSystem.writeAsStringAsync(uri, base64, {
+                encoding: FileSystem.EncodingType.Base64,
+              })
+          )
+          .catch((e) => console.log(e));
+      }
+    } else {
+      await shareAsync(uri);
+    }
     handleDbSave();
-    console.log("PDF saved to:", uri);
   };
 
   const handleShare = async () => {
