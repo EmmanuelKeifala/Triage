@@ -13,6 +13,3 @@ const tokenGenerator = (): string => {
 
   return token;
 };
-
-// Example usage
-console.log(tokenGenerator());

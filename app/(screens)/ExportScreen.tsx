@@ -37,6 +37,7 @@ const TriageScreen = () => {
         const data = await getData(facilityCode);
         setFacilityData(data);
       } catch (error) {
+        Alert.alert("Error", "Error fetching facility data:");
         console.error("Error fetching facility data:", error);
       }
     }
@@ -134,7 +135,7 @@ const TriageScreen = () => {
       if (!isSaved) {
         const { uri } = await Print.printToFileAsync({ html: htmlContent });
         const response = await uploadFileToArweave(uri, "application/pdf");
-        // console.log( response.tx)
+
         await supabase.from("patients").insert({
           patientid: patientId,
         });
@@ -381,7 +382,7 @@ const TriageScreen = () => {
                 encoding: FileSystem.EncodingType.Base64,
               })
           )
-          .catch((e) => console.log(e));
+          .catch((e) => Alert.alert("Error", "File not saved"));
       }
     } else {
       await shareAsync(uri);
