@@ -261,7 +261,6 @@ const Chat = () => {
           cancelSpeechToText={cancelSpeechToText}
           clearMessages={clearMessages}
           stopSpeaking={stopSpeaking}
-          router={router}
         />
       </LinearGradient>
     </SafeAreaView>

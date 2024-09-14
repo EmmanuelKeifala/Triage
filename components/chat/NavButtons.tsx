@@ -1,16 +1,15 @@
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 const NavButtons = ({
   cancelSpeechToText,
   clearMessages,
   stopSpeaking,
-  router,
 }: {
   cancelSpeechToText: () => void;
   clearMessages: () => void;
   stopSpeaking: () => void;
-  router: any;
 }) => {
   return (
     <View style={styles.navButtonsContainer}>
