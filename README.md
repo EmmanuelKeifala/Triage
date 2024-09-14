@@ -32,11 +32,35 @@ This will install all the necessary dependencies defined in the `package.json` f
 
 To run the dev build on your physical device without expo go. Why? Because most react native modules do not work in expo-go
 
-- **Install the latest EAS CLI**: `npm install -g eas-cli` we recommend you use `npm` over `yarn` for global package installations
-- **Log in to your Expo account**: `eas login`
-- **Configure the project**: `eas build:configure`
-- **Run a build Build for Android Emulator/device or iOS Simulator**: this works for android `eas build --profile development --platform android` we recommend using android dev builds over ios dev builds
-  -- **Download the abb file**: download the abb file from expo dev website and install
+- **Install the latest EAS CLI**:
+
+```bash
+npm install -g eas-cli
+```
+
+we recommend you use `npm` over `yarn` for global package installations
+
+- **Log in to your Expo account**:
+
+```bash
+eas login
+```
+
+- **Configure the project**:
+
+```bash
+eas build:configure
+```
+
+- **Run a build Build for Android Emulator/device or iOS Simulator**: this works for android
+
+```bash
+eas build --profile development --platform android
+```
+
+we recommend using android dev builds over ios dev builds
+
+- **Download the abb file**: download the abb file from expo dev website and install
 
 #### Step 3: Start the Development Application
 
@@ -46,7 +70,7 @@ Once the dependencies are installed, use the following command to start the Expo
 npx expo --dev-client
 ```
 
-This will launch Expo's development tools in your browser, where you can run the app on an emulator, physical device, or web preview.
+This will launch Expo's development tools in your terminal, where you can run the app on an emulator, physical device, or web preview.
 
 ### Tech Stack Overview
 
