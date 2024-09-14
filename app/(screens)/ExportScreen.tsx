@@ -96,7 +96,6 @@ const TriageScreen = () => {
           settings,
           endpoint,
         });
-        console.log("export response: ", response);
         if (response && response.data) {
           setTriageData(response.data);
         } else {
@@ -105,7 +104,7 @@ const TriageScreen = () => {
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     };
 
@@ -118,7 +117,7 @@ const TriageScreen = () => {
 
   const handleDbSave = async () => {
     setIsLoading(true);
-    const { Biodata } = triageData; 
+    const { Biodata } = triageData;
 
     // Check for required fields
     if (!Biodata["Age"] || !Biodata["Name of patient"] || !Biodata["Sex"]) {

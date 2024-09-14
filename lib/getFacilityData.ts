@@ -1,11 +1,11 @@
 import { supabase } from "./supabase";
 
 interface Facility {
-  facilitycode: number;
+  facilitycode: string;
   [key: string]: any;
 }
 
-const getData = async (facilityCode: number): Promise<Facility[] | null> => {
+const getData = async (facilityCode: string): Promise<Facility[] | null> => {
   try {
     const { data, error } = await supabase
       .from("facilities")

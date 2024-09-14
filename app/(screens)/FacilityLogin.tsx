@@ -26,10 +26,10 @@ const TriageScreen: React.FC = () => {
     setLoading(true);
 
     try {
-      const facilityData = await getData(+facilityCode);
+      const facilityData = await getData(facilityCode);
 
       if (facilityData?.length) {
-        setFacilityCode(Number(facilityCode));
+        setFacilityCode(facilityCode);
         router.push("/(screens)/ExportScreen");
       } else {
         Alert.alert("Error", "Incorrect facility code. Please try again.");

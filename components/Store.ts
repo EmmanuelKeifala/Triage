@@ -16,11 +16,11 @@ export interface CachedFile {
 }
 
 interface MessageStore {
-  facilityCode: number;
+  facilityCode: string;
   messages: Message[];
   addMessage: (message: Message) => void;
   clearMessages: () => void;
-  setFacilityCode: (code: number) => void;
+  setFacilityCode: (code: string) => void;
   settings: Setting[];
   addSetting: (setting: Setting) => void;
   clearSetting: () => void;
@@ -30,7 +30,7 @@ interface MessageStore {
 }
 
 const useMessageStore = create<MessageStore>((set, get) => ({
-  facilityCode: 1,
+  facilityCode: " ",
   messages: [
     {
       content: "Hi, how can I assist you",
