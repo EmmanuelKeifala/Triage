@@ -10,10 +10,10 @@ export interface FetchApiParams {
 
 interface FetchApiResponse {
   Error?: string;
-  [key: string]: any; // Adjust based on actual expected response shape
+  [key: string]: any; 
 }
 
-const API_URL = "https://server-one-cyan.vercel.app/api"; // Move API URL to a constant
+const API_URL = "https://server-one-cyan.vercel.app/api"; // this is a nextjs sever hosted on vercel
 
 export const fetchApi = async ({
   messagesData,

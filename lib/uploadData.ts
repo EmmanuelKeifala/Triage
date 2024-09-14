@@ -1,7 +1,6 @@
 import { Buffer } from "buffer";
 import * as FileSystem from "expo-file-system";
 
-// Define the tag structure
 interface Tag {
   name: string;
   value: string;
@@ -16,7 +15,6 @@ const uploadFileToArweave = async (
       encoding: FileSystem.EncodingType.Base64,
     });
 
-    // Convert the Base64 string to a Buffer
     const fileBuffer = Buffer.from(file, "base64");
 
     const tags: Tag[] = [

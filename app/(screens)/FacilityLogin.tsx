@@ -26,7 +26,7 @@ const TriageScreen: React.FC = () => {
     setLoading(true);
 
     try {
-      const facilityData = await getData(facilityCode);
+      const facilityData = await getData(+facilityCode);
 
       if (facilityData?.length) {
         setFacilityCode(Number(facilityCode));

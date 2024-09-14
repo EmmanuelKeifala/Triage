@@ -91,7 +91,7 @@ const SplashScreen = () => {
     if (settings.location.trim() !== "") {
       addSetting(settings);
       bottomSheetModalRef.current?.dismiss();
-      setIsGearRotated(false); // Sync rotation state
+      setIsGearRotated(false);
     } else {
       Alert.alert(
         "Invalid Input",

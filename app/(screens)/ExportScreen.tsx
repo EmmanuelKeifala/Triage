@@ -105,7 +105,7 @@ const TriageScreen = () => {
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setIsLoading(false); // End loading
+        setIsLoading(false); 
       }
     };
 
@@ -118,7 +118,7 @@ const TriageScreen = () => {
 
   const handleDbSave = async () => {
     setIsLoading(true);
-    const { Biodata } = triageData; // Assuming formData contains the form data
+    const { Biodata } = triageData; 
 
     // Check for required fields
     if (!Biodata["Age"] || !Biodata["Name of patient"] || !Biodata["Sex"]) {

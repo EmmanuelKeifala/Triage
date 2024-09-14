@@ -77,7 +77,6 @@ const useMessageStore = create<MessageStore>((set, get) => ({
     const existingFile = state.fileCache[location];
 
     if (existingFile) {
-      // Check if the new file data is the same as the existing file data
       if (
         existingFile.fileUri === fileData.fileUri &&
         existingFile.mimeType === fileData.mimeType
