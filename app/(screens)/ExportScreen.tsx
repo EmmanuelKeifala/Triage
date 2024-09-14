@@ -14,13 +14,13 @@ import {
 import * as Print from "expo-print";
 import { shareAsync } from "expo-sharing";
 import useMessageStore, { Message } from "@/components/Store";
-import { fetchApi } from "@/utils/fetchApi";
+import { fetchApi } from "@/lib/fetchApi";
 
-import { generatePatientId } from "@/utils/generatePatientId";
+import { generatePatientId } from "@/lib/generatePatientId";
 
-import getData from "@/utils/getFacilityData";
-import uploadFileToArweave from "@/utils/uploadData";
-import { supabase } from "@/utils/supabase";
+import getData from "@/lib/getFacilityData";
+import uploadFileToArweave from "@/lib/uploadData";
+import { supabase } from "@/lib/supabase";
 
 const endpoint = "summary";
 const TriageScreen = () => {

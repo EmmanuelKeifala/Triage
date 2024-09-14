@@ -8,12 +8,10 @@ import {
 } from "react-native";
 import Markdown from "react-native-markdown-display";
 
-// Define props interface
 interface MarkdownRendererProps {
   content: string;
 }
 
-// Define styles with explicit typing for better maintainability
 const markdownStyles = StyleSheet.create({
   text: {
     fontSize: 16,
@@ -78,13 +76,11 @@ const markdownStyles = StyleSheet.create({
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
   return (
-    <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Markdown style={markdownStyles}>
-          {content || "No content available"}
-        </Markdown>
-      </ScrollView>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Markdown style={markdownStyles}>
+        {content || "No content available"}
+      </Markdown>
+    </ScrollView>
   );
 };
 
@@ -93,9 +89,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f5f5f5",
     padding: 16,
+    height: 100,
   } as ViewStyle,
   scrollContainer: {
-    flexGrow: 1,
+    // flexGrow: 1,
   } as ViewStyle,
 });
 

@@ -26,7 +26,7 @@ import {
 
 import * as Haptics from "expo-haptics";
 
-import { fetchApi } from "@/utils/fetchApi";
+import { fetchApi } from "@/lib/fetchApi";
 import { router } from "expo-router";
 
 const endpoint = "chat";

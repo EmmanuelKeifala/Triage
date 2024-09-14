@@ -11,14 +11,14 @@ import {
   Alert,
 } from "react-native";
 import useMessageStore from "@/components/Store";
-import getData from "@/utils/getFacilityData";
+import getData from "@/lib/getFacilityData";
 import { router } from "expo-router";
 
 const LOGO_SIZE = 100;
 const INPUT_PLACEHOLDER = "Facility Code";
 
 const TriageScreen: React.FC = () => {
-  const [facilityCode, setFacilityCodeInput] = useState<string>(""); 
+  const [facilityCode, setFacilityCodeInput] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const { setFacilityCode } = useMessageStore();
 
@@ -29,7 +29,7 @@ const TriageScreen: React.FC = () => {
       const facilityData = await getData(facilityCode);
 
       if (facilityData?.length) {
-        setFacilityCode(Number(facilityCode)); 
+        setFacilityCode(Number(facilityCode));
         router.push("/(screens)/ExportScreen");
       } else {
         Alert.alert("Error", "Incorrect facility code. Please try again.");
@@ -37,7 +37,7 @@ const TriageScreen: React.FC = () => {
     } catch (error) {
       Alert.alert("Error", "An unexpected error occurred. Please try again.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
