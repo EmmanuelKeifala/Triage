@@ -22,7 +22,7 @@ create a directory
 
 ```bash
 mkdir `your-directory-name`
-
+cd `your-directory-name`
 git clone https://github.com/EmmanuelKeifala/Triage ./
 
 ```
