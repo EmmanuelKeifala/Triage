@@ -16,6 +16,17 @@ If you do not have these installed, follow the official installation instruction
 - [Node.js Installation](https://nodejs.org/en/download/)
 - [Expo Installation](https://docs.expo.dev/get-started/installation/)
 
+### Clone the repo
+
+create a directory
+
+```bash
+mkdir `your-directory-name`
+
+git clone https://github.com/EmmanuelKeifala/Triage ./
+
+```
+
 ### Step-by-Step Setup
 
 #### Step 1: Install Dependencies
@@ -60,7 +71,7 @@ eas build --profile development --platform android
 
 we recommend using android dev builds over ios dev builds
 
-- **Download the abb file**: download the abb file from expo dev website and install
+- **Download the aab file**: download the aab file from expo dev website and install
 
 #### Step 3: Start the Development Application
 
