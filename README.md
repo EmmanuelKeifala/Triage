@@ -132,7 +132,7 @@ The **Triage** app is designed to help healthcare workers to get patient medical
 - Sync data with a backend server to ensure persistence across devices and send them on the blockchain for permanent storage, integrity and privacy.
 ### Screens
 
-  <img src="https://github.com/user-attachments/assets/d6b90267-7929-41dc-918f-59d7839845db" alt="Home Screen" width="200"/><img src="https://github.com/user-attachments/assets/34bc3f53-10c6-4e07-a7b8-5bbb768eac67" alt="Chat Screen" width="200"/><img src="https://github.com/user-attachments/assets/d0d329e1-c890-4d9c-b9bf-2ffd05151a9e" alt="Login Screen" width="200"/><img src="https://github.com/user-attachments/assets/e9aa3ac6-cdec-4dc0-9395-a9b2e5be6a15" alt="Login Screen" width="200"/>
+  <img src="https://github.com/user-attachments/assets/d6b90267-7929-41dc-918f-59d7839845db" alt="Home Screen" width="200"/> <img src="https://github.com/user-attachments/assets/34bc3f53-10c6-4e07-a7b8-5bbb768eac67" alt="Chat Screen" width="200"/> <img src="https://github.com/user-attachments/assets/d0d329e1-c890-4d9c-b9bf-2ffd05151a9e" alt="Login Screen" width="200"/> <img src="https://github.com/user-attachments/assets/e9aa3ac6-cdec-4dc0-9395-a9b2e5be6a15" alt="Login Screen" width="200"/>
 
 
 
